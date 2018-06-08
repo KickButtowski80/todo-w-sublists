@@ -1,0 +1,9 @@
+<% unless todo_item.completed? %> 
+   <%= link_to complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+      <%= fa_icon 'square', style: 'opacity: 0.4;' %>Mark as Complete
+    <%end%>
+ <%else%>
+    <%= link_to complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+      <%= fa_icon 'check', style: 'opacity: 0.4;' %>Marked as Finish     
+   <%end%>
+<%end%>
