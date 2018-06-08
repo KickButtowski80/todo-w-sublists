@@ -5,7 +5,8 @@
 <table class='table table-border'>
   <thead>
     <tr>
-      <th>Todo list item</th>
+      <th>Title</th>
+      <th>Date</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -16,7 +17,7 @@
       <tr>
         
         <td><%= link_to  todo_list.todo_list, todo_list_todo_items_path(todo_list)%></td>
-        <td><%= todo_list.date%></td>
+        <td><%= todo_list.date.strftime("%Y-%m-%d") %></td>
         <!--<td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>-->
         <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Todo List', new_todo_list_path %>
+<%= link_to 'New Todo List', new_todo_list_path , class: 'btn btn-primary'%>

@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+  time:
+    formats:
+      todo_list_date: "%m/%d/%Y"
