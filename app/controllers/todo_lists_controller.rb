@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
-  # before_action :set_todo_item, only: [:show]
+  before_action :set_todo_item, only: []
   # GET /todo_lists
   # GET /todo_lists.json
   def index
@@ -25,11 +25,12 @@ class TodoListsController < ApplicationController
   # POST /todo_lists
   # POST /todo_lists.json
   def create
+    # @todo_item = TodoItem.find(params[:id])
     @todo_list = TodoList.new(todo_list_params)
 
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to @todo_list, notice: 'Todo list was successfully created.' }
+        format.html { redirect_to  todo_list_todo_items_path(@todo_list), notice: 'Todo list was successfully created.' }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new }
