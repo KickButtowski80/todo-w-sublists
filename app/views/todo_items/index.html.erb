@@ -15,7 +15,7 @@
   <tbody>
     <% @todo_items.each do |todo_item| %>
       <tr class="<%=completed?(todo_item)%>">
-        <td><%= link_to todo_item.description , todo_list_path(@todo_list)%></td>
+        <td><%= link_to todo_item.description , edit_todo_list_todo_item_path(@todo_list,todo_item.id)%></td>
         <td>
             <div class="field"> 
             <%= render '/todo_items/completed_status' , todo_item: todo_item%>
