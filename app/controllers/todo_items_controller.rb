@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: [ :complete, :show, :edit, :update, :destroy]
-  before_action :set_todo_list, only: [ :index, :show, :destroy]
+  before_action :set_todo_list, only: [ :index, :show, :destroy, :update]
   
   
   
@@ -47,13 +47,14 @@ class TodoItemsController < ApplicationController
   # PATCH/PUT /todo_items/1
   # PATCH/PUT /todo_items/1.json
   def update
+     
     respond_to do |format|
       if @todo_item.update(todo_item_params)
-        format.html { redirect_to @todo_item, notice: 'Todo item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @todo_item }
+        format.html { redirect_to  todo_list_todo_items_path(@todo_list), notice: 'Todo item was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @todo_item }
       else
         format.html { render :edit }
-        format.json { render json: @todo_item.errors, status: :unprocessable_entity }
+        # format.json { render json: @todo_item.errors, status: :unprocessable_entity }
       end
     end
   end
