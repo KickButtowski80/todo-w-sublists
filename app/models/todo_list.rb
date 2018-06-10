@@ -11,4 +11,5 @@
 
 class TodoList < ApplicationRecord
     has_many :todo_items
+    validates :todo_list, presence: true, length: { minimum: 5}
 end

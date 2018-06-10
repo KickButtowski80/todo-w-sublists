@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: [ :complete, :show, :edit, :update, :destroy]
-  before_action :set_todo_list, only: [ :index, :show, :destroy, :update]
+  before_action :set_todo_list, only: [ :index, :create,  :show, :destroy, :update]
   
   
   
@@ -30,7 +30,6 @@ class TodoItemsController < ApplicationController
   # POST /todo_items
   # POST /todo_items.json
   def create 
-     @todo_list = TodoList.find(params[:todo_list_id])
      @todo_item = @todo_list.todo_items.new(todo_item_params)
     
     respond_to do |format|
@@ -38,7 +37,7 @@ class TodoItemsController < ApplicationController
         format.html { redirect_to todo_list_todo_items_path, notice: 'Todo item was successfully created.' }
         format.json { render :show, status: :created, location: @todo_item }
       else
-        format.html { render :new }
+        format.html {redirect_to todo_list_todo_items_path, notice: "#{ render_to_string(partial: '/shared/errors_messages' , locals: {todo_item: @todo_item})}"}
         format.json { render json: @todo_item.errors, status: :unprocessable_entity }
       end
     end
@@ -89,9 +88,9 @@ class TodoItemsController < ApplicationController
     end
     
     def set_todo_list
-     @todo_list = TodoList.find(params[:todo_list_id])
-    
+     @todo_list = TodoList.find(params[:todo_list_id])    
     end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_item_params
       params.require(:todo_item).permit(:description, :completed, :status, :todo_list_id)
