@@ -1,0 +1,31 @@
+%table.table.table-border
+  %thead
+    %tr
+      - if params[:list_id]
+        %th Description
+        %th Completed
+        %th Status
+        %th Action
+      - else
+        %th Title
+        %th Date
+        %th{colspan: "2"}
+  %tbody
+    - if params[:list_id]
+      - @list.items.each do |item|
+        %tr{class: item.completed? }
+          %td= link_to item.description, edit_list_item_path(@list,item)
+          %td
+            .field
+              = link_to complete_list_item_path(@list,item), method: :patch do
+                = fa_icon (item.completed? ? 'check' : 'square'), style: 'opacity: 0.4;', text: (item.completed? ? 'Mark as Finish' : 'Mark as Complete')
+          %td= item.status
+          %td= link_to '⛔', list_item_path(@list,item), method: :delete, data: { confirm: 'Are you sure?' }
+    - else
+      - @lists.each do |list|
+        %tr
+          %td= link_to list.description, list_items_path(list)
+          %td= list.created_at.to_s :short
+          %td= link_to '⛔', list_path(list), method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to 'New', (params[:list_id] ? new_list_item_path(@list) : new_list_path), class: 'btn btn-primary'

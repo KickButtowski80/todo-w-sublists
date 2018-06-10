@@ -1,0 +1,32 @@
+
+= form_with model: @model, url: (params[:list_id] ? list_items_path(@model.list_id) : lists_path), local: true do |form|
+
+  - if form.object.errors.any?
+    #error_explanation
+      %h2
+        = pluralize form.object.errors.count, "error"
+        prohibited this todo_list from being saved:
+      %ul
+        - form.object.errors.full_messages.each do |message|
+          %li= message
+
+  - if params[:list_id]
+    .field
+      = form.label :description
+      = form.text_field :description
+    .field
+      = form.label :completed
+      = form.check_box :completed
+    .field
+      = form.label :status
+      = form.collection_radio_buttons :status, form.object.class.statuses, :first, :first
+  - else
+    .field
+      = form.label :title
+      = form.text_field :title
+    .field
+      = form.label :pick_a_date
+      = form.date_select(:created_at, :order => [:month, :day, :year])
+
+  .actions
+    = form.submit
