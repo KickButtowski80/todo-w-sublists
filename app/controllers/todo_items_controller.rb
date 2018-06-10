@@ -34,8 +34,7 @@ class TodoItemsController < ApplicationController
     
     respond_to do |format|
       if @todo_item.save
-        format.html { redirect_to todo_list_todo_items_path, notice: 'Todo item was successfully created.' }
-     
+        format.html { redirect_to todo_list_todo_items_path, notice: 'Todo item was successfully created.' }     
       else
         format.html {redirect_to todo_list_todo_items_path, notice: "#{render_to_string(partial: '/shared/errors_messages' , locals: {todo_item: @todo_item})}"}
        
