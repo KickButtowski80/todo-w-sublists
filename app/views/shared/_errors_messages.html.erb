@@ -1,5 +1,5 @@
 <% if  todo_item.errors.any? %>
-    <div class="error_explanation">
+    <div class="flash error">
         <h2>
             <strong>
                 <%= pluralize( todo_item.errors.count, "error") %> prohibited this commment from being saved:
