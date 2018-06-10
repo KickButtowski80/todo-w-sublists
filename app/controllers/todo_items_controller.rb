@@ -35,10 +35,10 @@ class TodoItemsController < ApplicationController
     respond_to do |format|
       if @todo_item.save
         format.html { redirect_to todo_list_todo_items_path, notice: 'Todo item was successfully created.' }
-        format.json { render :show, status: :created, location: @todo_item }
+     
       else
-        format.html {redirect_to todo_list_todo_items_path, notice: "#{ render_to_string(partial: '/shared/errors_messages' , locals: {todo_item: @todo_item})}"}
-        format.json { render json: @todo_item.errors, status: :unprocessable_entity }
+        format.html {redirect_to todo_list_todo_items_path, notice: "#{render_to_string(partial: '/shared/errors_messages' , locals: {todo_item: @todo_item})}"}
+       
       end
     end
   end
