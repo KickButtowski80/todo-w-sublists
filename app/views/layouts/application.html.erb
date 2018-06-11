@@ -11,7 +11,9 @@
   </head>
 
   <body>
-  
+     <p class="notice"><%=raw( notice) %></p>
+     <p class="alert"><%= alert %></p>
+     <%= render 'shared/navbar' %>
      <%= yield %>
   </div>
    

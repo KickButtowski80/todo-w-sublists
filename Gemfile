@@ -71,3 +71,5 @@ gem 'rubocop'
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'devise', '~> 4.2'
+
