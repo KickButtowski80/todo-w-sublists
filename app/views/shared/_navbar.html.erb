@@ -1,26 +1,22 @@
-<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-  <div class='container'>
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to root_path, class: 'navbar-brand' do %>
-        <i class="fa fa-users"></i>
-            Todo List
-      <% end %>
-    </div>
-    <div class="collapse navbar-collapse" id="main-nav-collapse">
-      <div class="nav navbar-nav navbar-right">
+<nav class="navbar  navbar-light bg-light">
+  <a class="navbar-brand" href="#">Todo List</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
         <% if user_signed_in? %>
+          <li class="nav-item active">
+            <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+            <%= link_to 'Todo Lists'  '' , class: 'nav-link' %>
+          </li>
           <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
         <% else %>
           <%= link_to "Log In", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
         <% end %>
-      </div>
-     
-    </div><!-- /.navbar-collapse -->
+      </li> 
+
+    </ul>
   </div>
 </nav>
