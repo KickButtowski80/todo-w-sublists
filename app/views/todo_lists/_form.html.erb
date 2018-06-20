@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :todo_list %>
-    <%= form.text_field :todo_list %>
+    <%= form.text_field :todo_list  , class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :pick_a_date %>
     <%= form.date_select(:date, :order => [:month, :day, :year])%>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>

@@ -15,10 +15,7 @@
             <div class="form-group">
               <%= form.label :status %>
                <%= form.collection_radio_buttons :status, [[:low, 'Low'] ,[:medium, 'Medium'],[:high, 'High'],[:urgent, 'Urgent']], :first, :last , class: 'form-control' %>
-            </div>
-          
-            
-          
+            </div>          
             <div class="actions">
               <%= form.submit class: 'btn btn-primary form-control'%>
             </div>
