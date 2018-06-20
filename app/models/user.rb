@@ -23,6 +23,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-         
+  # devise :database_authenticatable
+
+  # def after_database_authentication
+  #   self.update_attributes(:name => "your name goes here")
+  # end         
   has_many :todo_lists
 end
