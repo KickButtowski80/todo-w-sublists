@@ -1,29 +1,30 @@
-<h1>Todo Lists</h1>
-
-<table class='table table-border'>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <h1>Todo Lists</h1>
   
-    <% @todo_lists.each do |todo_list| %>
+  <table class='table table-border'>
+    <thead>
       <tr>
-        
-        <td><%= link_to  todo_list.todo_list, todo_list_todo_items_path(todo_list)%></td>
-        <td><%= todo_list.date.strftime("%Y-%m-%d") %></td>
-        <!--<td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>-->
-        <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Date</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Todo List', new_todo_list_path , class: 'btn btn-primary'%>
-
+    </thead>
+  
+    <tbody>
+    
+      <% @todo_lists.each do |todo_list| %>
+       <%if  todo_list.owner == current_user.name %>
+        <tr>          
+          <td><%= link_to  todo_list.todo_list, todo_list_todo_items_path(todo_list)%></td>
+          <td><%= todo_list.date.strftime("%Y-%m-%d") %></td>
+          <!--<td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>-->
+          <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <%end%>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'New Todo List', new_todo_list_path , class: 'btn btn-primary'%>
+<%#end%>  

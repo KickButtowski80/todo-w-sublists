@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  date       :datetime
+#  owner      :string
 #
 
 class TodoList < ApplicationRecord
