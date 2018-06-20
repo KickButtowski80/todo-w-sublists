@@ -11,7 +11,7 @@
   </head>
 
   <body> 
-     <%= render 'shared/navbar' %>
+     <%= render 'shared/navbar' , :locals => { todo_list: @todo_list } %>
      <p class="notice"><%=raw( notice) %></p>
      <p class="alert"><%= alert %></p>
      <%= yield %>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Todo List</a>
+  <%= link_to 'Todo Lists' ,    todo_lists_path , class: 'navbar-brand' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,7 +8,7 @@
       <li class="nav-item">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%#= link_to 'Todo Lists'  '' , class: 'nav-link' %>
+            
           </li>
           <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
         <% else %>
