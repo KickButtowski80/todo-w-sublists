@@ -4,7 +4,7 @@
 
             <div class="form-group">
               <%= form.label :description %>
-              <%= form.text_field :description , class: 'form-control' %>
+              <%= form.text_field :description , class:' ' %>
             </div>
           
             <div class="form-check  form-check-inline">
@@ -14,10 +14,10 @@
           
             <div class="form-group">
               <%= form.label :status %>
-               <%= form.collection_radio_buttons :status, [[:low, 'Low'] ,[:medium, 'Medium'],[:high, 'High'],[:urgent, 'Urgent']], :first, :last , class: 'form-control' %>
+               <%= form.collection_radio_buttons :status, [[:low, 'Low'] ,[:medium, 'Medium'],[:high, 'High'],[:urgent, 'Urgent']], :first, :last , class:' ' %>
             </div>          
             <div class="actions">
-              <%= form.submit class: 'btn btn-primary form-control'%>
+              <%= form.submit class: 'btn btn-primary'%>
             </div>
             
         <% end %>   
