@@ -4,3 +4,20 @@
 .card{
    margin: 0 auto;
 }
+
+table {
+table-layout: fixed;
+word-wrap: normal;
+}
+
+
+td{
+    width: 10%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    th>span { 
+        display: none;
+    }
+}
