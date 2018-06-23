@@ -1,38 +1,32 @@
+<h1>Todo Items</h1>
 
-<div class="row">
-  <div class="col-md-12">
-        <h1>Todo Items</h1>
-    
-        <table class='table table-responsive  table-border table-prmiary '>
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Completed</th>
-              <th>Status</th> 
-              <th>Actions</th>
-              <!--<th colspan="2"></th>-->
-            </tr>
-          </thead>
-        
-          <tbody>
-            <% @todo_items.each do |todo_item| %>
-              <tr class="<%=completed?(todo_item)%>">
-                <td><%= link_to todo_item.description , edit_todo_list_todo_item_path(@todo_list,todo_item.id)%></td>
-                <td> 
-                    <%= render '/todo_items/completed_status' , todo_item: todo_item%>             
-                   
-                </td>
-                <td><%= todo_item.status %></td>
-                <td><%= link_to 'Delete', todo_list_todo_item_path(@todo_list,todo_item.id), :method => :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-    <%#= link_to 'New Todo Item', new_todo_list_todo_item_url(), class: 'btn btn-primary'%>
-    <%= render 'form', todo_list: @todo_list%>
-    <br>
-    <%= link_to 'Back to All Lists',  root_path %>
-
+  <table class='table  table-border table-prmiary '>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Description</th>
+        <th scope="col">Completed</th>
+        <th scope="col">Status</th> 
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
   
-  </div>
-</div>
+    <tbody>
+      <% @todo_items.each do |todo_item| %>
+        <tr class="<%=completed?(todo_item)%>">
+          <th scope="row"><%= todo_item.id %></th>
+          <td><%= link_to todo_item.description , edit_todo_list_todo_item_path(@todo_list,todo_item.id)%></td>
+          <td> 
+              <%= render '/todo_items/completed_status' , todo_item: todo_item%>             
+             
+          </td>
+          <td><%= todo_item.status %></td>
+          <td><%= link_to 'Delete', todo_list_todo_item_path(@todo_list,todo_item.id), :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%#= link_to 'New Todo Item', new_todo_list_todo_item_url(), class: 'btn btn-primary'%>
+<%= render 'form', todo_list: @todo_list%>
+<br>
+<%= link_to 'Back to All Lists',  root_path %>

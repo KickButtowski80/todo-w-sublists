@@ -3,9 +3,10 @@
   <table class='table table-border'>
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Date</th>
-        <th colspan="2"></th>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
       </tr>
     </thead>
   
@@ -13,7 +14,8 @@
     
       <% @todo_lists.each do |todo_list| %>
        <%if  todo_list.owner == current_user.name %>
-        <tr>          
+        <tr>  
+          <th scope="row"><%= todo_list.id %></th>
           <td><%= link_to  todo_list.todo_list, todo_list_todo_items_path(todo_list)%></td>
           <td><%= todo_list.date.strftime("%Y-%m-%d") %></td>
           <!--<td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>-->
