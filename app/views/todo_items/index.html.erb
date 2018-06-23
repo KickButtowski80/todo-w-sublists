@@ -15,7 +15,7 @@
       <% @todo_items.each do |todo_item| %>
         <tr class="<%=completed?(todo_item)%>">
           <th scope="row"><%= todo_item.id %></th>
-          <td><%= link_to todo_item.description , edit_todo_list_todo_item_path(@todo_list,todo_item.id)%></td>
+          <td><%= link_to truncate(todo_item.description, length:10, omission: '...') , edit_todo_list_todo_item_path(@todo_list,todo_item.id)%></td>
           <td> 
               <%= render '/todo_items/completed_status' , todo_item: todo_item%>           
           </td>
