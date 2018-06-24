@@ -52,6 +52,8 @@ group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'annotate', '~> 2.7', '>= 2.7.1'
+  gem 'rails-erd', '~> 1.5', '>= 1.5.2'
+  gem 'ruby-graphviz', '~> 1.2', '>= 1.2.3'
 end
 
 group :test do
