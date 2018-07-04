@@ -11,17 +11,15 @@
     </thead>
   
     <tbody>
-      <% counter = 0 %>
-      <% @todo_lists.each do |todo_list| %>      
-       <%if current_user.todo_lists.exists? todo_list.id %>
+      <% current_user.todo_lists.each_with_index do |todo_list,index| %> 
         <tr>           
-          <th scope="row"> <%= counter +=  1 %></th>
+          <th scope="row"> <%= index += 1 %></th>
           <td><%= link_to  todo_list.todo_list, todo_list_todo_items_path(todo_list)%></td>
           <td><%= todo_list.date.strftime("%Y-%m-%d") %></td>
           <!--<td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>-->
           <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-      <%end%>
+     
       <% end %>
     </tbody>
   </table>
