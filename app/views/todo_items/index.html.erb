@@ -12,9 +12,9 @@
     </thead>
   
     <tbody>
-      <% @todo_items.each do |todo_item| %>
+      <% @todo_items.each_with_index do |todo_item, index| %>
         <tr class="<%=completed?(todo_item)%>">
-          <th scope="row"><%= todo_item.id %></th>
+          <th scope="row"><%= index + 1 %></th>
           <td><%= link_to todo_item.description , edit_todo_list_todo_item_path(@todo_list,todo_item.id)%></td>
           <td> 
               <%= render '/todo_items/completed_status' , todo_item: todo_item%>           
