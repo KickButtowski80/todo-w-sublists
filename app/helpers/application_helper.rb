@@ -17,7 +17,5 @@ module ApplicationHelper
         list.completed ? "complete" : "un-complete"
     end
     
-    def count(user)
-      user.increment!(:sign_in_count)
-    end
+
 end
