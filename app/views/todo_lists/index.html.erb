@@ -11,7 +11,7 @@
     </thead>
   
     <tbody>
-     <% @todo_lists.each_with_index do |object,index| %>     
+      <% @todo_lists.each do |todo_list,index| %>      
        <%if todo_list.owner == current_user.name %>
         <tr>           
           <th scope="row"> <%= index %></th>
