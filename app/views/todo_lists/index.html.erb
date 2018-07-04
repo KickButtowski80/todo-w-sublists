@@ -11,11 +11,10 @@
     </thead>
   
     <tbody>
-      <% counter = 0 %>
-      <% @todo_lists.each do |todo_list| %>      
+     <% @todo_lists.each_with_index do |object,index| %>     
        <%if todo_list.owner == current_user.name %>
         <tr>           
-          <th scope="row"> <%= counter = counter + 1 %></th>
+          <th scope="row"> <%= index %></th>
           <td><%= link_to  todo_list.todo_list, todo_list_todo_items_path(todo_list)%></td>
           <td><%= todo_list.date.strftime("%Y-%m-%d") %></td>
           <!--<td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>-->
