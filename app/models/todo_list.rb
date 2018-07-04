@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  date       :datetime
 #  owner      :string
+#  user_id    :integer
 #
 
 class TodoList < ApplicationRecord
