@@ -1,7 +1,7 @@
 module ApplicationHelper
-           def completed?(list)
+    def completed?(list)
         if list.completed           
-            'table-dark'
+            'table-dark animation'
         elsif list.status == 'low'
             'table-light'
         elsif list.status == 'medium'
